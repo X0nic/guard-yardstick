@@ -5,7 +5,7 @@ module Guard
     # http://semver.org/
     MAJOR = 0
     MINOR = 0
-    PATCH = 1
+    PATCH = 2
 
     def self.to_s
       [MAJOR, MINOR, PATCH].join('.')
