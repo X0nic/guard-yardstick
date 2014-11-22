@@ -37,7 +37,7 @@ Please read the [Guard usage documentation](https://github.com/guard/guard#readm
 You can pass some options in `Guardfile` like the following example:
 
 ```ruby
-guard :yardstick, all_on_start: false, cli: ['app/**/*.rb', 'lib/**/*.rb'] do
+guard :yardstick, all_on_start: false do
   # ...
 end
 ```
