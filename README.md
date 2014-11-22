@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/guard-yardstick.svg)](http://badge.fury.io/rb/guard-yardstick)
+
 # guard-yardstick
 
 guard-yardstick will automatically check your code for missing yardocs
