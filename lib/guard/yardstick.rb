@@ -5,6 +5,10 @@ require 'yardstick'
 module Guard
   class Yardstick < Plugin
 
+    # Initializes guard-yardstick
+    #
+    # @api public
+    # @return [Guard::Yardstick]
     def initialize(options = {})
       super
 
@@ -33,6 +37,10 @@ module Guard
 
     private
 
+    # Runs yardstick on a partial set of paths passed in by guard
+    #
+    # @api private
+    # @return [Void]
     def run_partially(paths)
       return if paths.empty?
 
@@ -42,6 +50,10 @@ module Guard
       inspect_with_yardstick(paths)
     end
 
+    # Runs yardstick and outputs results to STDOUT
+    #
+    # @api private
+    # @return [Void]
     def inspect_with_yardstick(paths = [])
       measurements = ::Yardstick.measure
       measurements.puts
@@ -50,6 +62,10 @@ module Guard
                "#{error.backtrace.first} #{error.message} (#{error.class.name})"
     end
 
+    # Returns a path with pwd removed if needed
+    #
+    # @api private
+    # @return [String]
     def smart_path(path)
       if path.start_with?(Dir.pwd)
         Pathname.new(path).relative_path_from(Pathname.getwd).to_s
