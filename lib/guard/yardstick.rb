@@ -7,7 +7,7 @@ module Guard
 
     # Initializes guard-yardstick
     #
-    # @api public
+    # @api private
     # @return [Guard::Yardstick]
     def initialize(options = {})
       super
@@ -17,20 +17,31 @@ module Guard
       }.merge(options)
     end
 
+    # When guard starts will run all files if :all_on_start is set
+    #
+    # @api private
+    # @return [Void]
     def start
       run_all if @options[:all_on_start]
     end
 
+    # Will run all files through yardstick
     def run_all
       UI.info 'Inspecting Yarddoc in all files'
 
       inspect_with_yardstick
     end
 
+    # Will run when files are added
+    #
+    # @return [Void]
     def run_on_additions(paths)
       run_partially(paths)
     end
 
+    # Will run when files are changed
+    #
+    # @return [Void]
     def run_on_modifications(paths)
       run_partially(paths)
     end
