@@ -26,6 +26,9 @@ module Guard
     end
 
     # Will run all files through yardstick
+    #
+    # @api private
+    # @return [Void]
     def run_all
       UI.info 'Inspecting Yarddoc in all files'
 
@@ -34,6 +37,7 @@ module Guard
 
     # Will run when files are added
     #
+    # @api private
     # @return [Void]
     def run_on_additions(paths)
       run_partially(paths)
@@ -41,6 +45,7 @@ module Guard
 
     # Will run when files are changed
     #
+    # @api private
     # @return [Void]
     def run_on_modifications(paths)
       run_partially(paths)
