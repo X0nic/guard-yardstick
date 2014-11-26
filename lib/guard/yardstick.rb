@@ -4,17 +4,22 @@ require 'yardstick'
 
 module Guard
   class Yardstick < Plugin
+    # A hash of options for configuring the plugin
+    #
+    # @api private
+    # @return [Hash]
+    attr_reader :options
 
     # Initializes guard-yardstick
     #
     # @api private
     # @return [Guard::Yardstick]
-    def initialize(options = {})
+    def initialize(args = {})
       super
 
       @options = {
         all_on_start: true
-      }.merge(options)
+      }.merge(args)
     end
 
     # When guard starts will run all files if :all_on_start is set
@@ -22,7 +27,7 @@ module Guard
     # @api private
     # @return [Void]
     def start
-      run_all if @options[:all_on_start]
+      run_all if options[:all_on_start]
     end
 
     # Will run all files through yardstick
