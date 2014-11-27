@@ -75,7 +75,7 @@ module Guard
     #
     # @api private
     # @return [Void]
-    def inspect_with_yardstick(paths = [])
+    def inspect_with_yardstick(_paths = [])
       measurements = ::Yardstick.measure
       measurements.puts
     rescue => error
@@ -94,7 +94,5 @@ module Guard
         path
       end
     end
-
    end
-
 end
