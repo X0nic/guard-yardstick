@@ -3,6 +3,7 @@ require 'guard/plugin'
 require 'yardstick'
 
 module Guard
+  # A guard plugin to run yardstick on every save
   class Yardstick < Plugin
     # A hash of options for configuring the plugin
     #
@@ -79,8 +80,9 @@ module Guard
       measurements = ::Yardstick.measure
       measurements.puts
     rescue => error
-      UI.error 'The following exception occurred while running guard-yardstick: ' \
-               "#{error.backtrace.first} #{error.message} (#{error.class.name})"
+      UI.error 'The following exception occurred while running ' \
+               "guard-yardstick: #{error.backtrace.first} " \
+               "#{error.message} (#{error.class.name})"
     end
 
     # Returns a path with pwd removed if needed
@@ -94,5 +96,5 @@ module Guard
         path
       end
     end
-   end
+  end
 end
