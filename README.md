@@ -6,8 +6,6 @@ guard-yardstick will automatically check your code for missing yardocs
 
 ## Installation
 
-Please make sure to have [Guard](https://github.com/guard/guard) installed before continue.
-
 Add `guard-yardstick` to your `Gemfile`:
 
 ```ruby
