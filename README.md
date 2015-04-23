@@ -6,8 +6,6 @@ guard-yardstick will automatically check your code for missing yardocs
 
 ## Installation
 
-Please make sure to have [Guard](https://github.com/guard/guard) installed before continue.
-
 Add `guard-yardstick` to your `Gemfile`:
 
 ```ruby
@@ -30,11 +28,17 @@ $ gem install guard-yardstick
 
 ## Usage
 
-Please read the [Guard usage documentation](https://github.com/guard/guard#readme).
+After correctly installing the gem initialize your Guardfile as follows.
+
+```sh
+$ bundle exec guard init yardstick
+```
+
+Please read the [Guard usage documentation](https://github.com/guard/guard#readme) for further details.
 
 ## Options
 
-You can pass some options in `Guardfile` like the following example:
+There is currently only a single option that can be passed to this guard. *all_on_start* which is *true* by default.
 
 ```ruby
 guard :yardstick, all_on_start: false do

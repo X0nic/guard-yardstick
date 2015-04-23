@@ -1,0 +1,6 @@
+guard :yardstick do
+  # Typical Rails setup
+  # watch(%r{^app\/(.+)\.rb$})
+  # watch(%r{^config\/initializers\/(.+)\.rb$})
+  watch(%r{^lib\/(.+)\.rb$})
+end
