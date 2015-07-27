@@ -18,7 +18,10 @@ module Guard
       super
 
       @options = {
-        all_on_start: true
+        all_on_start: true,
+        # Taken from yardsitck:
+        # https://github.com/dkubb/yardstick/blob/0aa394dd64baf5155775e6be5018d6c9844654b7/lib/yardstick/config.rb#L167
+        path:         ['lib/**/*.rb']
       }.merge(args)
     end
 
@@ -36,8 +39,7 @@ module Guard
     # @return [Void]
     def run_all
       UI.info 'Inspecting Yarddoc in all files'
-
-      inspect_with_yardstick
+      inspect_with_yardstick(options[:path])
     end
 
     # Will run when files are added
@@ -75,8 +77,9 @@ module Guard
     #
     # @api private
     # @return [Void]
-    def inspect_with_yardstick(_paths = [])
-      measurements = ::Yardstick.measure
+    def inspect_with_yardstick(paths)
+      config = ::Yardstick::Config.coerce(path: paths)
+      measurements = ::Yardstick.measure(config)
       measurements.puts
     rescue => error
       UI.error 'The following exception occurred while running ' \

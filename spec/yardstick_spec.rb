@@ -14,6 +14,11 @@ RSpec.describe Guard::Yardstick do
         subject { super()[:all_on_start] }
         it { should be_truthy }
       end
+
+      describe '[:path]' do
+        subject { super()[:path] }
+        it { should eq(['lib/**/*.rb']) }
+      end
     end
   end
 end

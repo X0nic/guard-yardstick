@@ -6,6 +6,7 @@ gemspec
 group :development do
   gem 'guard'
   gem 'guard-rubocop'
+  gem 'guard-rspec'
   gem 'rubocop'
 end
 
