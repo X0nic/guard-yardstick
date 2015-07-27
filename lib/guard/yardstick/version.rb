@@ -4,8 +4,8 @@ module Guard
   module YardstickVersion
     # http://semver.org/
     MAJOR = 0
-    MINOR = 0
-    PATCH = 3
+    MINOR = 1
+    PATCH = 0
 
     # Returns a formatted version string
     #
