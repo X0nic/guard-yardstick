@@ -39,7 +39,8 @@ Please read the [Guard usage documentation](https://github.com/guard/guard#readm
 ## Options
 
 *all_on_start:* Same as on any other Guard plugin. Run yardstick on all files on start or not.
-*path:* Tells yardsitck which paths to run the yardoc analysis on. Defaults to yardsticks default of *'lib/**/*.rb'*
+
+*path:* Tells yardstick which paths to run the yardoc analysis on. Defaults to yardsticks default of *'lib'* directory.
 
 
 ```ruby
