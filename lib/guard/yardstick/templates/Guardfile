@@ -1,5 +1,9 @@
+# Options to guard-yardstick
+# all_on_start: true
+# path: ['app', 'config', 'lib']
 guard :yardstick do
   # Typical Rails setup
+  # Set path option to ['app', 'config', 'lib']
   # watch(%r{^app\/(.+)\.rb$})
   # watch(%r{^config\/initializers\/(.+)\.rb$})
   watch(%r{^lib\/(.+)\.rb$})

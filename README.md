@@ -38,10 +38,12 @@ Please read the [Guard usage documentation](https://github.com/guard/guard#readm
 
 ## Options
 
-There is currently only a single option that can be passed to this guard. *all_on_start* which is *true* by default.
+*all_on_start:* Same as on any other Guard plugin. Run yardstick on all files on start or not.
+*path:* Tells yardsitck which paths to run the yardoc analysis on. Defaults to yardsticks default of *'lib/**/*.rb'*
+
 
 ```ruby
-guard :yardstick, all_on_start: false do
+guard :yardstick, all_on_start: false, path: ['app', 'config', 'lib'] do
   # ...
 end
 ```
