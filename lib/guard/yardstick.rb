@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'guard/compat/plugin'
 require 'yardstick'
+require 'yaml'
 
 module Guard
   # A guard plugin to run yardstick on every save
@@ -19,9 +22,7 @@ module Guard
 
       @options = {
         all_on_start: true,
-        # Taken from yardsitck:
-        # https://github.com/dkubb/yardstick/blob/0aa394dd64baf5155775e6be5018d6c9844654b7/lib/yardstick/config.rb#L167
-        path:         ['lib/**/*.rb']
+        config: nil
       }.merge(args)
     end
 
@@ -39,7 +40,7 @@ module Guard
     # @return [Void]
     def run_all
       UI.info 'Inspecting Yarddoc in all files'
-      inspect_with_yardstick(options[:path])
+      inspect_with_yardstick
     end
 
     # Will run when files are added
@@ -70,18 +71,18 @@ module Guard
       displayed_paths = paths.map { |path| smart_path(path) }
       UI.info "Inspecting Yarddocs: #{displayed_paths.join(' ')}"
 
-      inspect_with_yardstick(paths)
+      inspect_with_yardstick(path: paths)
     end
 
     # Runs yardstick and outputs results to STDOUT
     #
     # @api private
     # @return [Void]
-    def inspect_with_yardstick(paths)
-      config = ::Yardstick::Config.coerce(path: paths)
+    def inspect_with_yardstick(yardstick_options = {})
+      config = ::Yardstick::Config.coerce(yardstick_config(yardstick_options))
       measurements = ::Yardstick.measure(config)
       measurements.puts
-    rescue => error
+    rescue StandardError => error
       UI.error 'The following exception occurred while running ' \
                "guard-yardstick: #{error.backtrace.first} " \
                "#{error.message} (#{error.class.name})"
@@ -97,6 +98,17 @@ module Guard
       else
         path
       end
+    end
+
+    # Merge further options with yardstick config file.
+    #
+    # @api private
+    # @return [Hash] Hash of options for yardstick measurement
+    def yardstick_config(extra_options = {})
+      return options unless options[:config]
+
+      yardstick_options = YAML.load_file(options[:config])
+      yardstick_options.merge(extra_options)
     end
   end
 end

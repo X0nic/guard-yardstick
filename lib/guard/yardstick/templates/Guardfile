@@ -1,9 +1,21 @@
+# frozen_string_literal: true
+
 # Options to guard-yardstick
 # all_on_start: true
-# path: ['app', 'config', 'lib']
+# config: nil
 guard :yardstick do
   # Typical Rails setup
-  # Set path option to ['app', 'config', 'lib']
+  # Set path option for yardstick in ,yardstick.yml
+  # ---
+  # path:
+  #   - app
+  #   - config
+  #   - lib
+  # # Also check out the rules config
+  # # https://github.com/dkubb/yardstick#4-configuration
+  #
+  # and pass in the location of the yaml file using the config option
+  # config: '.yardstick.yml'
   # watch(%r{^app\/(.+)\.rb$})
   # watch(%r{^config\/initializers\/(.+)\.rb$})
   watch(%r{^lib\/(.+)\.rb$})

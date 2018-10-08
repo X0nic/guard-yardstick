@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Guard
   # A workaround for declaring `class Yardstick`
   # before `class Yardstick < Guard` in yardstick.rb
@@ -12,7 +14,6 @@ module Guard
     # @example
     #   Guard::YardstickVersion.to_s # => '0.0.0.2'
     #
-    # @api public
     # @return [String]
     def self.to_s
       [MAJOR, MINOR, PATCH].join('.')

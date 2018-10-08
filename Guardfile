@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard :yardstick do
+guard :yardstick, config: '.yardstick.yml' do
   watch(/.+\.rb$/)
+  watch('.yardstick.yml') { 'lib' }
 end
 
-guard :rubocop, all_on_start: true, cli: ['--display-cop-name']do
+guard :rubocop, all_on_start: true, cli: ['--display-cop-name'] do
   watch('guard-yardstick.gemspec')
   watch(/^(|Rakefile|Guardfile)/)
   watch(/.+\.rb$/)
