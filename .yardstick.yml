@@ -1,0 +1,14 @@
+---
+rules:
+  ApiTag::Presence:
+    enabled: true
+    exclude:
+      - Guard::YardstickVersion.to_s
+  ApiTag::Inclusion:
+    enabled: true
+    exclude:
+      - Guard::YardstickVersion.to_s
+  Summary::Delimiter:
+    enabled: true
+    exclude:
+      - Guard::Yardstick#yardstick_config

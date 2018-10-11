@@ -10,7 +10,7 @@ Add `guard-yardstick` to your `Gemfile`:
 
 ```ruby
 group :development do
-  gem 'guard-yardstick'
+  gem 'guard-yardstick', require: false
 end
 ```
 
@@ -40,11 +40,11 @@ Please read the [Guard usage documentation](https://github.com/guard/guard#readm
 
 *all_on_start:* Same as on any other Guard plugin. Run yardstick on all files on start or not.
 
-*path:* Tells yardstick which paths to run the yardoc analysis on. Defaults to yardsticks default of *'lib'* directory.
+*config:* Tells yardstick where to find yardsticks configuration file if present.
 
 
 ```ruby
-guard :yardstick, all_on_start: false, path: ['app', 'config', 'lib'] do
+guard :yardstick, config: './.yardstick.yml' do
   # ...
 end
 ```

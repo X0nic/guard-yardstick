@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'guard/yardstick'
 require 'guard/compat/test/helper'
 
