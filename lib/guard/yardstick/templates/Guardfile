@@ -18,5 +18,6 @@ guard :yardstick do
   # config: '.yardstick.yml'
   # watch(%r{^app\/(.+)\.rb$})
   # watch(%r{^config\/initializers\/(.+)\.rb$})
+  # watch('.yardstick.yml') { 'lib' }
   watch(%r{^lib\/(.+)\.rb$})
 end
