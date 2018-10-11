@@ -5,8 +5,8 @@ module Guard
   # before `class Yardstick < Guard` in yardstick.rb
   module YardstickVersion
     # http://semver.org/
-    MAJOR = 0
-    MINOR = 1
+    MAJOR = 1
+    MINOR = 0
     PATCH = 0
 
     # Returns a formatted version string
